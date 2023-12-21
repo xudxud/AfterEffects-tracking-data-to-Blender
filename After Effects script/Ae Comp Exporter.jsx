@@ -103,12 +103,6 @@ function showUI() {
     exportCameraCheckbox.value = true;
     var exportNullsCheckbox = exportOptions.add("checkbox", undefined, "Export Nulls");
     exportNullsCheckbox.value = true;
-    var convertNullsCheckbox = exportOptions.add("checkbox", undefined, "Convert Nulls to Points");
-    convertNullsCheckbox.enabled = true;
-
-    exportNullsCheckbox.onClick = function() {
-        convertNullsCheckbox.enabled = exportNullsCheckbox.value;
-    }
 
     var buttons = win.add("group");
     buttons.alignment = "center";
@@ -121,7 +115,7 @@ function showUI() {
             return;
         }
         win.close();
-        main(filePath.text, parseFloat(sensorSizeInput.text), exportCameraCheckbox.value, exportNullsCheckbox.value, convertNullsCheckbox.value);
+        main(filePath.text, parseFloat(sensorSizeInput.text), exportCameraCheckbox.value, exportNullsCheckbox.value);
     };
 
     cancelButton.onClick = function() {
@@ -133,7 +127,7 @@ function showUI() {
 }
 
 // Updated Main Function with Parameters
-function main(filePath, sensorSize, exportCamera, exportNulls, convertNulls) {
+function main(filePath, sensorSize, exportCamera, exportNulls) {
     var comp = app.project.activeItem;
     if (!(comp && comp instanceof CompItem)) {
         alert("No active composition.");
@@ -145,7 +139,6 @@ function main(filePath, sensorSize, exportCamera, exportNulls, convertNulls) {
         options: {
             exportCamera: exportCamera,
             exportNulls: exportNulls,
-            convertNulls: convertNulls
         }
     };
 
@@ -163,15 +156,18 @@ function main(filePath, sensorSize, exportCamera, exportNulls, convertNulls) {
     }
 
     if (exportNulls) {
-        data.objects = exportSolidsAndNulls(comp, convertNulls);
+        data.objects = exportSolidsAndNulls(comp);
     }
 
     var file = new File(filePath);
+    if (!/\.json$/i.test(filePath)) {
+        file = new File(filePath + ".json");
+    }
     file.open("w");
     file.write(JSON.stringify(data, null, 4));
     file.close();
 
-    alert("Export completed to: " + filePath);
+    alert("Export completed to: " + file.fsName);
 }
 
 // Call UI
