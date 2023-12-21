@@ -20,12 +20,9 @@ This Blender add-on imports the JSON file created by the AE script and organizes
 
 #### Installation:
 
-1. **Save the Add-on Script:**
-   - Save the Blender add-on script as a `.py` file on your computer.
-
-2. **Install the Add-on in Blender:**
+1. **Install the Add-on in Blender:**
    - Open Blender and go to `Edit > Preferences > Add-ons`.
-   - Click `Install` and navigate to the `.py` file.
+   - Click `Install` and navigate to the `Ae Comp Importer.py` file.
    - Select the file and click `Install Add-on`.
    - In the Add-ons list, find and enable the add-on by checking the box next to its name.
 
@@ -39,7 +36,7 @@ This Blender add-on imports the JSON file created by the AE script and organizes
 
 2. **Check the Collections:**
    - In the Blender scene, you will find a new collection named "Comp from AE" containing the imported camera and its hierarchy.
-   - If null objects were imported, they will be in a nested collection named "Track Points" within "Comp from AE".
+   - If track points were imported, they will be in a nested collection named "Track Points".
 
 ---
 
