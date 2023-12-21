@@ -13,8 +13,8 @@ This script exports camera and null object data from After Effects to a JSON fil
    - Go to `File > Scripts > Run Script File...` in After Effects.
    - Navigate to and select the AE script file.
    - The script will prompt you for a location to save the JSON file and export the data.
-     Note: It's recommanded to enable all the exporting options.
-           You can decide what you want when importing JSON file to Blender.
+   <br /><br />**Note:** *It's recommanded to enable all the exporting options.*
+   <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*You can decide what you want when importing JSON file to Blender.*
 
 ### Blender Add-on
 
