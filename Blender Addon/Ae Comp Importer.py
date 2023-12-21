@@ -116,7 +116,7 @@ class ImportAEJSON(Operator, ImportHelper):
     startFrame: IntProperty(name="Start Frame", description="Start frame for the animation", default=1)
     importCam: BoolProperty(name="Import Camera", description="Import Camera data if available", default=True)
     importTPs: BoolProperty(name="Import TrackPoints", description="Import TrackPoints if available", default=True)
-    convertNulls: BoolProperty(name="Convert Nulls to Points", description="Convert After Effects nulls to points in a mesh", default=False)
+    convertNulls: BoolProperty(name="Convert TrackPoints to mesh", description="Convert After Effects nulls to points in a mesh", default=False)
 
 
     def execute(self, context):
